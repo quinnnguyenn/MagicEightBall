@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getUserName() {
+            let name;
+            while (!name) {
+                name = prompt("What is your name?");
+                if (name === null) {
+                    alert("See you later!");
+                    return null;
+                } else if (!name.trim()) {
+                    alert("Please type your name.");
+                    name = null;
+                }
+            }
+            return name;
+            }
+
+        let userName = getUserName();
+        
+        if (userName !== null) {
+            const responses = ["Yes!", "Nope", "Unclear", "Absolutely", "Ask again later", "It's possible", "Impossible"];
+            
+            function getRandomResponse() {
+                return responses[Math.floor(Math.random() * responses.length)];
+            }
+            
+            while (true) {
+                let userQuestion = prompt(`Hi, ${userName}! What's your question?`);
+                
+                if (userQuestion === null) {
+                    alert("See you later!");
+                    break;
+                } else {
+                    alert(`${getRandomResponse()}`);
+                }
+            }
+            }
+    </script>
+</body>
+</html>
